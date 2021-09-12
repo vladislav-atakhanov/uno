@@ -1,0 +1,103 @@
+body {
+	font-family: sans-serif;
+}
+.player {
+	display: grid;
+	grid-template-columns: max-content 10rem max-content;
+	align-items: center;
+
+}
+
+.field__input {
+	display: block;
+	background-color: transparent;
+	border: none;
+	font: inherit;
+	outline: none;
+	padding: 1rem;
+	padding-bottom: 0.5em;
+}
+
+.new-player {
+	display: grid;
+	grid-template-columns: max-content min-content;
+}
+
+p {
+	margin: 0;
+}
+.field {
+	display: block;
+	position: relative;
+}
+.field:focus-within {
+	--focus: 1;
+	color: royalblue
+}
+.field::before,
+.field::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: 2px;
+	background-color: currentColor;
+	transition: all .2s
+}
+.field::before {
+	background-color: #ccc;
+}
+.field__title {
+	position: absolute;
+	top: 0;
+	left: 1rem;
+
+	transform: translate(
+		0,
+		calc(1rem * (1 - var(--focus, 0)))
+	);
+	transition: .2s all;
+}
+
+.field::after {
+	transform: scaleX(var(--focus, 0));
+	background-color: currentColor;
+}
+
+.btn--submit::before {
+	content: "▶"
+}
+
+button {
+	color: royalblue;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.field + button {
+	transform: translate(-100%);
+}
+
+.player__form {
+	display: grid;
+	grid-template-columns: max-content min-content;
+}
+
+.players {
+	display: grid;
+	margin-top: 2rem;
+	gap: 2rem;
+}
+
+.player__name {
+	margin: 0;
+	font-size: 1em;
+}
+.player__score {
+	margin: 0;
+	font-size: 1em;
+	text-align: center;
+	overflow: hidden;
+}
